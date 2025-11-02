@@ -1,8 +1,15 @@
 services:
   bffpgc:
     image: bffpgc
+    container_name: bffpgc
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - 8080:8080
+      - 3000:3000
+    networks:
+      - be-network 
+networks:
+  be-network:
+    driver: bridge
+    external: true
